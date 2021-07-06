@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# The Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was made for training purposes. I used React, Open Weather API to get the data, Sass for the style and Surge to deploy.
+![home](public/meteo-home.png)
 
 ## Available Scripts
 
