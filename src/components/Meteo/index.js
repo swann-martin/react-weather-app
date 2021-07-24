@@ -9,7 +9,6 @@ const Meteo = ({ zip }) => {
   const localURL = 'http://localhost:1234/';
   const liveURL = `https://api.openweathermap.org`;
   const path = `/data/2.5/weather?zip=${zip},fr&appid=${process.env.REACT_APP_API_KEY}&units=metric`;
-  console.log(process.env.REACT_APP_API_KEY);
   let url = liveURL + path;
   // console.log(process.env.NODE_ENV)
   // if (process.env.NODE_ENV === 'production') {
@@ -25,16 +24,15 @@ const Meteo = ({ zip }) => {
         console.log('success voici les données', res.data);
         setTemp(Math.round(res.data.main.temp));
         setSky(res.data.weather[0].main);
-        setCity(res.data.weather[0].name);
-        console.log('name', res.data.weather[0].base);
-        console.log(sky);
+        setCity(res.data.name);
+        console.log('name', res.data.name);
       })
       .catch((err) => {
         console.log('Ooops ça ne fonctionne pas', err);
       });
   };
 
-  useEffect(fetchWeather, []);
+  useEffect(fetchWeather, [city]);
 
   return (
     <div className="meteo">
